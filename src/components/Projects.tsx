@@ -12,8 +12,9 @@ gsap.registerPlugin(ScrollTrigger);
 const featuredProjects = [
   {
     title: "Credence",
+    subtitle: "AI Fact-Checking Platform",
     description:
-      "AI fact checker on WhatsApp that instantly verifies claims by searching trusted sources and learning from past checks, making accurate information accessible. Features WhatsApp helpline, Developer API, Web-based fact checker, and Chrome extension.",
+      "AI fact checker on WhatsApp that instantly verifies claims by searching trusted sources and learning from past checks. Features WhatsApp helpline, Developer API, Web-based fact checker, and Chrome extension.",
     tech: [
       "React",
       "TypeScript",
@@ -24,19 +25,23 @@ const featuredProjects = [
     ],
     github: "https://github.com/QusaiSak/MainMumbaiHacks",
     image: credence,
+    highlights: ["WhatsApp Integration", "Chrome Extension", "Developer API"],
   },
   {
     title: "DevArc",
+    subtitle: "Code Documentation Tool",
     description:
-      "AI-powered code analysis and documentation tool that helps developers understand, document, and maintain codebases. Automatically generates comprehensive documentation, provides architectural insights, and visualizes data flows with interactive Mermaid.js diagrams.",
+      "AI-powered code analysis and documentation tool that helps developers understand, document, and maintain codebases. Automatically generates comprehensive documentation and visualizes data flows with interactive Mermaid.js diagrams.",
     tech: ["React", "TypeScript", "PostgreSQL", "Drizzle ORM", "OpenRouter API"],
     github: "https://github.com/QusaiSak/DevArc",
     image: devarc,
+    highlights: ["Auto Documentation", "Architecture Insights", "Flow Diagrams"],
   },
   {
     title: "WebExtract",
+    subtitle: "Workflow Automation Platform",
     description:
-      "Web scraping and workflow automation platform with a visual drag-and-drop builder. Create automation workflows to extract data from websites, process with AI, generate documents, and perform fact-checking with SERP queries and live log streaming.",
+      "Web scraping and workflow automation platform with a visual drag-and-drop builder. Create automation workflows to extract data, process with AI, generate documents, and perform fact-checking with live log streaming.",
     tech: [
       "Next.js",
       "React Flow",
@@ -46,8 +51,8 @@ const featuredProjects = [
       "OpenRouter API",
     ],
     github: "https://github.com/QusaiSak/WebExtract",
-    live: "#",
     image: webextract,
+    highlights: ["Visual Builder", "AI Processing", "Live Streaming"],
   },
 ];
 
@@ -57,7 +62,7 @@ const otherProjects = [
     title: "Vision Capital",
     description:
       "A financial dashboard for tracking investments, providing real-time data visualization and analytics.",
-    tech: ["React", "TailwindCSS", "NodeJs", "MongoDB"],
+    tech: ["React", "TailwindCSS", "Node.js", "MongoDB"],
     github: "https://github.com/QusaiSak/VisionCapital",
   },
   {
@@ -70,8 +75,8 @@ const otherProjects = [
   {
     title: "HostIT",
     description:
-      "HostIT is a modern, user-friendly platform that simplifies application deployment through GitHub integration, offering features like one-click deployments, real-time monitoring, and AI-powered assistance.",
-    tech: ["React", "TailwindCSS" , "Clerk" , "OpenRouter API"],
+      "A modern platform that simplifies application deployment through GitHub integration with one-click deployments and AI-powered assistance.",
+    tech: ["React", "TailwindCSS", "Clerk", "OpenRouter API"],
     github: "https://github.com/QusaiSak/Hostit",
   },
 ];
@@ -153,21 +158,17 @@ const Projects = () => {
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient blobs */}
         <div className="absolute top-40 right-20 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 left-20 w-72 h-72 bg-amber-100/30 rounded-full blur-3xl"></div>
-        
-        {/* Code tags - top right */}
+
         <span className="absolute top-16 right-8 sm:right-16 text-black/[0.02] text-[6rem] sm:text-[10rem] lg:text-[14rem] font-mono select-none">
           {"</>"}
         </span>
 
-        {/* Return keyword - bottom left */}
         <span className="absolute bottom-32 left-8 sm:left-12 text-black/[0.02] text-[4rem] sm:text-[6rem] lg:text-[8rem] font-mono select-none">
           {"return"}
         </span>
 
-        {/* Subtle dots */}
         <div className="hidden lg:grid absolute top-1/4 left-20 grid-cols-2 gap-3 opacity-[0.03]">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-black"></div>
@@ -182,14 +183,19 @@ const Projects = () => {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 md:mb-24"
         >
           <div>
-            <p className="font-mono text-sm text-orange-500 uppercase tracking-widest mb-4">
-              {"// featured work"}
-            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-px bg-orange-500"></div>
+              <span className="text-orange-500 font-mono text-sm uppercase tracking-wider">
+                Featured Work
+              </span>
+            </div>
             <h2 className="bai-jamjuree text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight text-black">
               Projects
               <span className="text-orange-500">.</span>
             </h2>
-            <div className="w-24 h-1.5 bg-orange-500 mt-6"></div>
+            <p className="space-grotesk text-black/50 mt-4 max-w-md">
+              A selection of projects I've built — from AI platforms to automation tools.
+            </p>
           </div>
           <a
             href="https://github.com/QusaiSak"
@@ -197,9 +203,16 @@ const Projects = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 space-grotesk text-base uppercase tracking-wide text-black/60 hover:text-orange-500 transition-colors duration-300 group"
           >
+            <svg
+              className="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
             View All on GitHub
             <svg
-              className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+              className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -215,7 +228,7 @@ const Projects = () => {
         </div>
 
         {/* Featured Projects */}
-        <div ref={cardsRef} className="space-y-20 md:space-y-32">
+        <div ref={cardsRef} className="space-y-24 md:space-y-32">
           {featuredProjects.map((project, index) => (
             <div
               key={project.title}
@@ -225,14 +238,20 @@ const Projects = () => {
             >
               {/* Project Image */}
               <div className="w-full lg:w-[55%] group">
-                <div className="relative overflow-hidden rounded-2xl bg-gray-50 p-4 md:p-6 transition-all duration-500 group-hover:bg-gray-100">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-6 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/10">
+                  {/* Project number watermark */}
+                  <span className="absolute top-4 left-4 font-mono text-6xl md:text-8xl font-bold text-black/[0.03] select-none">
+                    0{index + 1}
+                  </span>
+                  
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-auto object-contain rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="w-full h-auto object-contain rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] relative z-10"
                   />
+                  
                   {/* Hover overlay with links */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center pb-8">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center pb-8 z-20">
                     <div className="flex gap-4">
                       <a
                         href={project.github}
@@ -248,28 +267,6 @@ const Projects = () => {
                           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                       </a>
-                      {project.live && project.live !== "#" && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:scale-110"
-                        >
-                          <svg
-                            className="w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                        </a>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -277,13 +274,19 @@ const Projects = () => {
 
               {/* Content */}
               <div className="w-full lg:w-[45%]">
-                {/* Project number */}
-                <span className="font-mono text-lg text-orange-500 font-semibold">
-                  0{index + 1}
-                </span>
+                {/* Project number & subtitle */}
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-mono text-sm text-orange-500 font-semibold">
+                    0{index + 1}
+                  </span>
+                  <span className="text-black/30">—</span>
+                  <span className="font-mono text-sm text-black/40 uppercase tracking-wider">
+                    {project.subtitle}
+                  </span>
+                </div>
 
                 {/* Title */}
-                <h3 className="bai-jamjuree text-4xl md:text-5xl lg:text-6xl font-bold text-black uppercase tracking-tight mt-2">
+                <h3 className="bai-jamjuree text-4xl md:text-5xl lg:text-6xl font-bold text-black uppercase tracking-tight">
                   {project.title}
                 </h3>
 
@@ -292,16 +295,44 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2 mt-8">
-                  {project.tech.map((tech, techIndex) => (
+                {/* Highlights */}
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {project.highlights.map((highlight, i) => (
                     <span
-                      key={techIndex}
-                      className="font-mono text-sm px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-lg text-black/70"
+                      key={i}
+                      className="inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 bg-orange-50 text-orange-600 rounded-full border border-orange-100"
                     >
-                      {tech}
+                      <svg
+                        className="w-3 h-3"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {highlight}
                     </span>
                   ))}
+                </div>
+
+                {/* Tech stack */}
+                <div className="mt-6">
+                  <span className="font-mono text-xs text-black/30 uppercase tracking-wider block mb-3">
+                    Built with
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="font-mono text-sm px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-lg text-black/70 hover:bg-black hover:text-white hover:border-black transition-all duration-200 cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Links */}
@@ -310,40 +341,30 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 space-grotesk text-sm uppercase tracking-wide text-black hover:text-orange-500 transition-colors duration-300"
+                    className="group/link inline-flex items-center gap-2 space-grotesk text-sm uppercase tracking-wide bg-black text-white px-5 py-2.5 rounded-full hover:bg-orange-500 transition-all duration-300"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="w-4 h-4"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                     View Code
-                  </a>
-                  {project.live && project.live !== "#" && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 space-grotesk text-sm uppercase tracking-wide text-orange-500 hover:text-orange-600 transition-colors duration-300"
+                    <svg
+                      className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                      Live Demo
-                    </a>
-                  )}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -353,13 +374,18 @@ const Projects = () => {
         {/* Other Projects Section */}
         <div ref={otherProjectsRef} className="mt-32 md:mt-40">
           {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <p className="font-mono text-sm text-orange-500 uppercase tracking-widest mb-4">
-              {"// more work"}
-            </p>
-            <h3 className="bai-jamjuree text-3xl md:text-5xl font-bold uppercase tracking-tight">
-              Other Projects
-            </h3>
+          <div className="flex items-center justify-between mb-12 md:mb-16">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-px bg-black/20"></div>
+                <span className="font-mono text-sm text-black/40 uppercase tracking-wider">
+                  More Work
+                </span>
+              </div>
+              <h3 className="bai-jamjuree text-3xl md:text-5xl font-bold uppercase tracking-tight">
+                Other Projects
+              </h3>
+            </div>
           </div>
 
           {/* Projects Grid */}
@@ -370,7 +396,7 @@ const Projects = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-300 hover:shadow-xl cursor-pointer"
+                className="group p-6 md:p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-black/5 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 cursor-pointer"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
@@ -390,7 +416,7 @@ const Projects = () => {
                     </svg>
                   </div>
                   <svg
-                    className="w-5 h-5 text-black/30 group-hover:text-orange-500 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+                    className="w-5 h-5 text-black/20 group-hover:text-orange-500 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -415,7 +441,7 @@ const Projects = () => {
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mt-6">
+                <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-black/5">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
@@ -423,7 +449,7 @@ const Projects = () => {
                     >
                       {tech}
                       {techIndex < project.tech.length - 1 && (
-                        <span className="ml-2">•</span>
+                        <span className="ml-2 text-black/20">•</span>
                       )}
                     </span>
                   ))}
@@ -437,7 +463,7 @@ const Projects = () => {
             <div className="flex justify-center mt-12">
               <button
                 onClick={() => setShowAllProjects(!showAllProjects)}
-                className="space-grotesk text-sm uppercase tracking-wide px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                className="group space-grotesk text-sm uppercase tracking-wide px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-300"
               >
                 {showAllProjects ? "Show Less" : "Show More Projects"}
               </button>

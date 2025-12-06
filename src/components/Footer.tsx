@@ -36,115 +36,145 @@ const Footer = () => {
     },
   ];
 
+  const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Projects", href: "#projects" },
+    { name: "Work", href: "#work" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="bg-black border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <footer className="bg-black border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {/* Brand & Description */}
-          <div className="lg:col-span-1">
-            <a
-              href="#"
-              className="group inline-block bai-jamjuree text-2xl font-bold text-white hover:text-orange-500 uppercase tracking-tight transition-colors duration-300"
-            >
-              Qusai
-              <span className="text-orange-500 group-hover:text-white transition-colors duration-300">
-                .
-              </span>
-            </a>
-            <p className="space-grotesk text-white/50 mt-4 leading-relaxed max-w-sm">
-              Full-stack developer crafting digital experiences with clean code
-              and creative solutions.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="lg:col-span-1">
-            <h4 className="font-mono text-xs text-white/30 uppercase tracking-widest mb-6">
-              Quick Links
-            </h4>
-            <nav className="flex flex-col gap-3">
-              {["About", "Services", "Projects", "Experience", "Contact"].map(
-                (link) => (
-                  <a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="space-grotesk text-white/60 hover:text-orange-500 transition-colors duration-300 w-fit"
-                  >
-                    {link}
-                  </a>
-                )
-              )}
-            </nav>
-          </div>
-
-          {/* Contact & Social */}
-          <div className="lg:col-span-1">
-            <h4 className="font-mono text-xs text-white/30 uppercase tracking-widest mb-6">
-              Get In Touch
-            </h4>
-            <div className="space-y-4">
+        <div className="py-12 md:py-16">
+          {/* Top Section - Logo & Social */}
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-12 pb-10 md:pb-12 border-b border-white/5">
+            {/* Brand */}
+            <div className="max-w-sm">
               <a
-                href="mailto:qusaisakerwala@gmail.com"
-                className="block space-grotesk text-white/60 hover:text-orange-500 transition-colors duration-300"
+                href="#"
+                className="group inline-block bai-jamjuree text-2xl md:text-3xl font-bold text-white hover:text-orange-500 uppercase tracking-tight transition-colors duration-300"
               >
-                qusaisakerwala@gmail.com
+                Qusai
+                <span className="text-orange-500 group-hover:text-white transition-colors duration-300">
+                  .
+                </span>
               </a>
-              <p className="space-grotesk text-white/40 text-sm">
-                Mumbai, India
+              <p className="space-grotesk text-white/40 mt-3 md:mt-4 text-sm md:text-base leading-relaxed">
+                Full-stack developer crafting digital experiences with clean
+                code and creative solutions.
               </p>
-              <p className="space-grotesk text-white/40 text-sm">
-                Available for remote work worldwide
-              </p>
+            </div>
 
-              {/* Social Icons */}
-              <div className="flex items-center gap-3 pt-4">
-                {socialLinks.map((social) => (
+            {/* Social Icons */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 sm:w-11 sm:h-11 bg-white/5 hover:bg-orange-500 rounded-xl flex items-center justify-center text-white/50 hover:text-white transition-all duration-300 hover:scale-105"
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Middle Section - Links & Contact */}
+          <div className="py-10 md:py-12 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 border-b border-white/5">
+            {/* Quick Links */}
+            <div>
+              <h4 className="font-mono text-[10px] sm:text-xs text-orange-500/80 uppercase tracking-widest mb-4 md:mb-6">
+                Navigation
+              </h4>
+              <nav className="flex flex-col gap-2 sm:gap-3">
+                {navLinks.map((link) => (
                   <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/5 hover:bg-orange-500 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-all duration-300"
-                    aria-label={social.name}
+                    key={link.name}
+                    href={link.href}
+                    className="space-grotesk text-sm sm:text-base text-white/50 hover:text-orange-500 transition-colors duration-300 w-fit"
                   >
-                    {social.icon}
+                    {link.name}
                   </a>
                 ))}
+              </nav>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 className="font-mono text-[10px] sm:text-xs text-orange-500/80 uppercase tracking-widest mb-4 md:mb-6">
+                Contact
+              </h4>
+              <div className="flex flex-col gap-2 sm:gap-3">
+                <a
+                  href="mailto:qusaisakerwala@gmail.com"
+                  className="space-grotesk text-sm sm:text-base text-white/50 hover:text-orange-500 transition-colors duration-300 break-all sm:break-normal"
+                >
+                  qusaisakerwala@gmail.com
+                </a>
+                <p className="space-grotesk text-sm text-white/30">
+                  Mumbai, India
+                </p>
               </div>
+            </div>
+
+            {/* Availability - Hidden on smallest screens */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="font-mono text-[10px] sm:text-xs text-orange-500/80 uppercase tracking-widest mb-4 md:mb-6">
+                Availability
+              </h4>
+              <div className="flex items-center gap-2.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="space-grotesk text-sm text-white/50">
+                  Open to opportunities
+                </span>
+              </div>
+              <p className="space-grotesk text-sm text-white/30 mt-2">
+                Available for remote work worldwide
+              </p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-white/10">
+        <div className="py-5 md:py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Copyright */}
-            <p className="font-mono text-sm text-white/40 order-2 sm:order-1">
-              © {currentYear} Qusai Sakerwala. All rights reserved.
+            <p className="font-mono text-xs sm:text-sm text-white/30 text-center sm:text-left">
+              © {currentYear} Qusai Sakerwala
             </p>
 
             {/* Built with love */}
-            <div className="flex items-center gap-2 text-white/40 order-1 sm:order-2">
-              <span className="font-mono text-sm">Built with</span>
+            <div className="flex items-center gap-2 text-white/30">
+              <span className="font-mono text-xs sm:text-sm">Built with</span>
               <svg
-                className="w-4 h-4 text-red-500 animate-pulse"
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
               </svg>
-              <span className="font-mono text-sm">using React & TailwindCSS</span>
             </div>
 
             {/* Back to top */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="w-10 h-10 bg-white/5 hover:bg-orange-500 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-all duration-300 order-3"
+              className="group flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-orange-500 rounded-full text-white/40 hover:text-white transition-all duration-300"
               aria-label="Back to top"
             >
+              <span className="font-mono text-xs uppercase tracking-wider hidden sm:inline">
+                Top
+              </span>
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-300"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

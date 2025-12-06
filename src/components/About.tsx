@@ -12,19 +12,19 @@ const About = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
 
   const skills = [
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Angular",
-    "Node.js",
-    "Express",
-    "Python",
-    "PostgreSQL",
-    "MongoDB",
-    "Tailwind CSS",
-    "Docker",
-    "Git",
+    { name: "JavaScript", category: "language" },
+    { name: "TypeScript", category: "language" },
+    { name: "Python", category: "language" },
+    { name: "React", category: "frontend" },
+    { name: "Next.js", category: "frontend" },
+    { name: "Angular", category: "frontend" },
+    { name: "Node.js", category: "backend" },
+    { name: "Express", category: "backend" },
+    { name: "PostgreSQL", category: "database" },
+    { name: "MongoDB", category: "database" },
+    { name: "Tailwind CSS", category: "frontend" },
+    { name: "Docker", category: "devops" },
+    { name: "Git", category: "devops" },
   ];
 
   useEffect(() => {
@@ -109,30 +109,32 @@ const About = () => {
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Function syntax - top right */}
         <span className="absolute top-16 right-8 sm:right-16 text-black/[0.02] text-[8rem] sm:text-[12rem] lg:text-[16rem] font-mono select-none">
           {"()"}
         </span>
-        
-        {/* Comment slashes - bottom left */}
+
         <span className="absolute bottom-20 left-8 sm:left-16 text-black/[0.02] text-[6rem] sm:text-[10rem] lg:text-[14rem] font-mono select-none">
           {"//"}
         </span>
 
-        {/* Subtle dots - top left */}
         <div className="hidden md:grid absolute top-32 left-24 grid-cols-3 gap-3 opacity-[0.03]">
           {[...Array(9)].map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-black"></div>
           ))}
         </div>
 
-        {/* Subtle line - right side */}
         <div className="hidden lg:block absolute top-1/2 right-12 w-px h-32 bg-black/[0.04]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Title */}
         <div className="mb-16 md:mb-24">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-px bg-orange-500"></div>
+            <span className="text-orange-500 font-mono text-sm uppercase tracking-wider">
+              Get to know me
+            </span>
+          </div>
           <h2
             ref={titleRef}
             className="bai-jamjuree text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight"
@@ -140,7 +142,6 @@ const About = () => {
             About
             <span className="text-orange-500">.</span>
           </h2>
-          <div className="w-24 h-1.5 bg-orange-400 mt-4"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -148,41 +149,64 @@ const About = () => {
           <div ref={contentRef} className="space-y-6 md:space-y-8">
             <p className="space-grotesk text-lg md:text-xl lg:text-2xl text-black/80 leading-relaxed">
               Hey! I'm{" "}
-              <span className="font-bold text-black">Qusai</span>, a
-              Full Stack Developer from{" "}
+              <span className="font-bold text-black">Qusai Sakerwala</span>, a
+              Full Stack Developer based in{" "}
               <span className="text-orange-500 font-semibold">
                 Mumbai, India
               </span>
-              . I build production-ready web applications that solve real
-              problems and serve real users.
+              . I build web applications that solve real problems and deliver
+              actual value.
             </p>
 
             <p className="space-grotesk text-lg md:text-xl lg:text-2xl text-black/70 leading-relaxed">
-              I specialize in modern web technologies like{" "}
+              My toolkit includes{" "}
               <span className="font-semibold">React</span>,{" "}
-              <span className="font-semibold">Angular</span>,{" "}
               <span className="font-semibold">Next.js</span>,{" "}
               <span className="font-semibold">Node.js</span>, and{" "}
-              <span className="font-semibold">TypeScript</span>. From building
-              scalable APIs to crafting intuitive user interfaces I enjoy
-              working across the entire stack.
+              <span className="font-semibold">TypeScript</span>. I work across
+              the entire stack from crafting intuitive interfaces to designing
+              scalable APIs and database architectures.
             </p>
 
             <p className="space-grotesk text-lg md:text-xl lg:text-2xl text-black/70 leading-relaxed">
-              I've built AI-powered platforms, workflow automation tools, and
-              analytics dashboards. I love turning complex problems into clean,
-              efficient solutions.
+              Recent work includes AI-powered fact-checking platforms, code
+              documentation tools, and workflow automation systems. I enjoy
+              turning complex problems into clean, maintainable solutions.
             </p>
+
+            {/* Quick Info */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="p-4 bg-gray-50 rounded-xl border border-black/5">
+                <span className="font-mono text-xs text-black/40 uppercase tracking-wider">
+                  Focus
+                </span>
+                <p className="space-grotesk font-semibold text-black mt-1">
+                  Full Stack Development
+                </p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-xl border border-black/5">
+                <span className="font-mono text-xs text-black/40 uppercase tracking-wider">
+                  Status
+                </span>
+                <p className="space-grotesk font-semibold text-black mt-1 flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  Open to Work
+                </p>
+              </div>
+            </div>
 
             {/* CTA */}
             <div className="pt-4 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 space-grotesk text-lg md:text-xl uppercase tracking-wide bg-black text-white px-8 py-4 rounded-full hover:bg-orange-500 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center gap-3 space-grotesk text-base md:text-lg uppercase tracking-wide bg-black text-white px-8 py-4 rounded-full hover:bg-orange-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-orange-500/20"
               >
                 Let's Connect
                 <svg
-                  className="w-5 h-5"
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -195,6 +219,27 @@ const About = () => {
                   />
                 </svg>
               </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 space-grotesk text-base md:text-lg uppercase tracking-wide border-2 border-black/10 text-black px-8 py-4 rounded-full hover:border-orange-500 hover:text-orange-500 transition-all duration-300"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+                Resume
+              </a>
             </div>
           </div>
 
@@ -203,43 +248,78 @@ const About = () => {
             {/* Terminal/Code Block */}
             <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
               {/* Terminal Header */}
-              <div className="flex items-center gap-2 px-4 py-3 bg-gray-800 border-b border-gray-700">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="ml-3 font-mono text-xs text-gray-400">
+              <div className="flex items-center justify-between px-4 py-3 bg-gray-800 border-b border-gray-700">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors cursor-pointer"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400 transition-colors cursor-pointer"></div>
+                </div>
+                <span className="font-mono text-xs text-gray-400">
                   about.ts
                 </span>
+                <div className="w-16"></div>
               </div>
 
               {/* Code Content */}
-              <div className="p-5 md:p-6 font-mono text-sm md:text-base">
-                <pre className="text-white/90 leading-loose">
+              <div className="p-5 md:p-6 font-mono text-sm md:text-base overflow-x-auto">
+                <pre className="text-white/90 leading-relaxed">
                   <code>
                     <span className="text-gray-500">{"// "}</span>
-                    <span className="text-gray-500">who am i</span>
+                    <span className="text-gray-500">developer profile</span>
                     {"\n\n"}
-                    <span className="text-pink-400">const</span>{" "}
-                    <span className="text-blue-300">qusai</span>{" "}
-                    <span className="text-white">=</span>{" "}
-                    <span className="text-yellow-200">{"{"}</span>
+                    <span className="text-pink-400">interface</span>{" "}
+                    <span className="text-yellow-200">Developer</span>{" "}
+                    <span className="text-white">{"{"}</span>
+                    {"\n"}
+                    {"  "}
+                    <span className="text-purple-300">name</span>
+                    <span className="text-white">:</span>{" "}
+                    <span className="text-blue-300">string</span>
+                    <span className="text-white">;</span>
                     {"\n"}
                     {"  "}
                     <span className="text-purple-300">role</span>
                     <span className="text-white">:</span>{" "}
-                    <span className="text-green-300">'Full Stack Dev'</span>
+                    <span className="text-blue-300">string</span>
+                    <span className="text-white">;</span>
+                    {"\n"}
+                    {"  "}
+                    <span className="text-purple-300">location</span>
+                    <span className="text-white">:</span>{" "}
+                    <span className="text-blue-300">string</span>
+                    <span className="text-white">;</span>
+                    {"\n"}
+                    {"  "}
+                    <span className="text-purple-300">available</span>
+                    <span className="text-white">:</span>{" "}
+                    <span className="text-blue-300">boolean</span>
+                    <span className="text-white">;</span>
+                    {"\n"}
+                    <span className="text-white">{"}"}</span>
+                    {"\n\n"}
+                    <span className="text-pink-400">const</span>{" "}
+                    <span className="text-blue-300">qusai</span>
+                    <span className="text-white">:</span>{" "}
+                    <span className="text-yellow-200">Developer</span>{" "}
+                    <span className="text-white">=</span>{" "}
+                    <span className="text-white">{"{"}</span>
+                    {"\n"}
+                    {"  "}
+                    <span className="text-purple-300">name</span>
+                    <span className="text-white">:</span>{" "}
+                    <span className="text-green-300">'Qusai Sakerwala'</span>
+                    <span className="text-white">,</span>
+                    {"\n"}
+                    {"  "}
+                    <span className="text-purple-300">role</span>
+                    <span className="text-white">:</span>{" "}
+                    <span className="text-green-300">'Full Stack Developer'</span>
                     <span className="text-white">,</span>
                     {"\n"}
                     {"  "}
                     <span className="text-purple-300">location</span>
                     <span className="text-white">:</span>{" "}
-                    <span className="text-green-300">'Mumbai, India'</span>
-                    <span className="text-white">,</span>
-                    {"\n"}
-                    {"  "}
-                    <span className="text-purple-300">focus</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-green-300">'Web Applications'</span>
+                    <span className="text-green-300">'Mumbai, IN'</span>
                     <span className="text-white">,</span>
                     {"\n"}
                     {"  "}
@@ -247,25 +327,30 @@ const About = () => {
                     <span className="text-white">:</span>{" "}
                     <span className="text-orange-400">true</span>
                     {"\n"}
-                    <span className="text-yellow-200">{"}"}</span>
+                    <span className="text-white">{"}"}</span>
                     <span className="text-white">;</span>
                   </code>
                 </pre>
               </div>
             </div>
 
-            {/* Skills below the terminal */}
-            <div className="mt-8">
-              <p className="font-mono text-sm text-black/40 mb-4">
-                {"// tech_stack"}
-              </p>
+            {/* Skills */}
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <p className="font-mono text-sm text-black/40">
+                  {"// tech_stack"}
+                </p>
+                <span className="font-mono text-xs text-black/30">
+                  {skills.length} technologies
+                </span>
+              </div>
               <div ref={skillsRef} className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="font-mono text-sm px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-lg text-black/70 transition-all duration-200 hover:bg-black hover:text-white hover:border-black cursor-default"
+                    className="group font-mono text-sm px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-lg text-black/70 transition-all duration-200 hover:bg-black hover:text-white hover:border-black cursor-default"
                   >
-                    {skill}
+                    {skill.name}
                   </span>
                 ))}
               </div>
