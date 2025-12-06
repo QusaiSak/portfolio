@@ -15,25 +15,15 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <div id="about">
+      <main>
+        <Hero />
         <About />
-      </div>
-      <div id="services">
         <Services />
-      </div>
-      <div id="projects">
         <Projects />
-      </div>
-      <div id="work">
         <Work />
-      </div>
-      <div id="testimonials">
         <Testimonial />
-      </div>
-      <div id="contact">
         <Contact />
-      </div>
+      </main>
       <Footer />
       <Analytics />
     </>

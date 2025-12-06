@@ -1,0 +1,15 @@
+# robots.txt for https://www.qusaisak.com
+# Qusai Sakerwala Portfolio
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.qusaisak.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block unnecessary files
+Disallow: /*.json$
+Disallow: /assets/*.js.map
