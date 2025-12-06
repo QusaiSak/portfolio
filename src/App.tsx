@@ -7,6 +7,7 @@ import Services from "./components/Services";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import Work from "./components/Work";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   
@@ -34,7 +35,7 @@ function App() {
         <Contact />
       </div>
       <Footer />
-
+      <Analytics />
     </>
   );
 }
