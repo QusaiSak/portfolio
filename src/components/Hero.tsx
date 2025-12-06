@@ -136,7 +136,7 @@ const Hero = () => {
             scale: 1,
             duration: 1.2,
           },
-          "-=0.5"
+          "-=0.4"
         )
         .to(
           leftTextRef.current,
@@ -232,13 +232,13 @@ const Hero = () => {
           <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Socials - Left side vertical */}
+        {/* Socials - Left side vertical (All screen sizes) */}
         <div
           ref={socialsRef}
-          className="hidden sm:flex absolute left-3 md:left-6 lg:left-10 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-2 md:gap-3"
+          className="absolute left-2 sm:left-3 md:left-6 lg:left-10 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1.5 sm:gap-2 md:gap-3"
         >
-          <div className="w-px h-8 md:h-12 bg-black/20"></div>
-          <span className="font-mono text-[10px] text-black/40 uppercase tracking-wider -rotate-90 mb-4">
+          <div className="w-px h-6 sm:h-8 md:h-12 bg-black/20"></div>
+          <span className="hidden sm:block font-mono text-[10px] text-black/40 uppercase tracking-wider -rotate-90 mb-4">
             Connect
           </span>
           {socials.map((social, index) => (
@@ -247,7 +247,7 @@ const Hero = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-black/70 hover:bg-black hover:text-white transition-all duration-300 hover:scale-110 border border-black/5"
+                className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-black/70 hover:bg-black hover:text-white transition-all duration-300 hover:scale-110 border border-black/5"
                 aria-label={social.name}
               >
                 {social.icon}
@@ -307,27 +307,11 @@ const Hero = () => {
               )}
             </div>
           ))}
-          <div className="w-px h-8 md:h-12 bg-black/20"></div>
-        </div>
-
-        {/* Mobile Socials - Bottom horizontal */}
-        <div className="sm:hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-black/5">
-          {socials.slice(0, 4).map((social, index) => (
-            <a
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 text-black/70 hover:bg-black hover:text-white transition-all duration-300"
-              aria-label={social.name}
-            >
-              {social.icon}
-            </a>
-          ))}
+          <div className="w-px h-6 sm:h-8 md:h-12 bg-black/20"></div>
         </div>
 
         {/* Hello, there text */}
-        <div className="absolute top-[12%] sm:top-[10%] z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-32 md:gap-52 lg:gap-80 mt-16 sm:mt-20 px-4">
+        <div className="absolute top-[8%] sm:top-[10%] z-10 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-32 md:gap-52 lg:gap-80 mt-12 sm:mt-20 px-4">
           <h1
             ref={helloRef}
             className="text-[2.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] playwrite-no font-semibold leading-none"
@@ -346,7 +330,7 @@ const Hero = () => {
         {/* Center Image */}
         <div className="w-full h-full flex items-center justify-center absolute inset-0 z-5">
           <div ref={imageRef} className="relative z-10 sm:ml-16">
-            <img src={heroImage} alt="Portrait" className="mt-32" />
+            <img src={heroImage} alt="Portrait" className="mt-24 sm:mt-32" />
           </div>
 
           {/* Full width bottom fade overlay */}
@@ -355,19 +339,19 @@ const Hero = () => {
           {/* Typewriter Role Text - bottom left */}
           <div
             ref={leftTextRef}
-            className="absolute bottom-16 sm:bottom-12 left-4 sm:left-10 space-grotesk z-20 max-w-[calc(100%-2rem)] sm:max-w-none"
+            className="absolute bottom-16 sm:bottom-12 left-12 sm:left-16 md:left-20 lg:left-24 space-grotesk z-20 max-w-[calc(100%-4rem)] sm:max-w-none"
           >
             {/* Label */}
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-px bg-black/30"></div>
-              <span className="font-mono text-xs text-black/50 uppercase tracking-wider">
+              <div className="w-6 sm:w-8 h-px bg-black/30"></div>
+              <span className="font-mono text-[10px] sm:text-xs text-black/50 uppercase tracking-wider">
                 Full Stack Developer
               </span>
             </div>
 
             {/* Name */}
             <div className="mb-1 sm:mb-2">
-              <span className="space-grotesk text-base sm:text-xl md:text-2xl lg:text-3xl text-black/80 font-medium tracking-wide">
+              <span className="space-grotesk text-sm sm:text-xl md:text-2xl lg:text-3xl text-black/80 font-medium tracking-wide">
                 Qusai Sakerwala
               </span>
             </div>
@@ -376,11 +360,11 @@ const Hero = () => {
             <h1 className="font-extrabold uppercase bai-jamjuree leading-[0.85] tracking-tight">
               <span
                 ref={typeRef}
-                className="text-[1.75rem] sm:text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[7rem] text-black"
+                className="text-[1.5rem] sm:text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[7rem] text-black"
               ></span>
               <span
                 ref={cursorRef}
-                className="text-[1.75rem] sm:text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[7rem] text-orange-500"
+                className="text-[1.5rem] sm:text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[7rem] text-orange-500"
               >
                 |
               </span>
